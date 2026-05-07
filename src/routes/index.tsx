@@ -1,17 +1,20 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-farm.jpg";
-import productsImg from "@/assets/products.jpg";
 import shippingImg from "@/assets/shipping.jpg";
+import turmericImg from "@/assets/product-turmeric.jpg";
+import cuminImg from "@/assets/product-cumin.jpg";
+import sesameImg from "@/assets/product-sesame.jpg";
+import riceImg from "@/assets/product-rice.jpg";
 
 export const Route = createFileRoute("/")({
   component: Home,
 });
 
 const products = [
-  { name: "Turmeric", origin: "Erode, Tamil Nadu", note: "High-curcumin, vibrant pigment" },
-  { name: "Cumin", origin: "Unjha, Gujarat", note: "Steam sterilised, export grade" },
-  { name: "Sesame Seeds", origin: "Saurashtra", note: "Hulled & natural, 99.95% purity" },
-  { name: "Basmati Rice", origin: "Punjab & Haryana", note: "Aged long-grain, premium tier" },
+  { name: "Turmeric", img: turmericImg, origin: "Erode, Tamil Nadu", note: "High-curcumin, vibrant pigment" },
+  { name: "Cumin", img: cuminImg, origin: "Unjha, Gujarat", note: "Steam sterilised, export grade" },
+  { name: "Sesame Seeds", img: sesameImg, origin: "Saurashtra", note: "Hulled & natural, 99.95% purity" },
+  { name: "Basmati Rice", img: riceImg, origin: "Punjab & Haryana", note: "Aged long-grain, premium tier" },
 ];
 
 const stages = [
@@ -139,19 +142,20 @@ function Home() {
               >
                 <div className="aspect-[4/5] relative overflow-hidden">
                   <img
-                    src={productsImg}
+                    src={p.img}
                     alt={p.name}
                     loading="lazy"
+                    width={800}
+                    height={1024}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    style={{ objectPosition: `${20 + i * 15}% center` }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent" />
-                  <div className="absolute top-4 left-4 text-[10px] uppercase tracking-[0.25em] text-ivory/80">
+                  <div className="absolute top-4 left-4 text-[10px] uppercase tracking-[0.25em] text-ivory/90">
                     0{i + 1}
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-serif text-2xl mb-1">{p.name}</h3>
+                  <h3 className="font-serif text-2xl mb-1 group-hover:text-primary transition-colors">{p.name}</h3>
                   <p className="text-xs uppercase tracking-wider text-gold mb-3">{p.origin}</p>
                   <p className="text-sm text-muted-foreground">{p.note}</p>
                 </div>
