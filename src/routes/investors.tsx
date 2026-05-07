@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import heroImg from "@/assets/hero-investors.jpg";
+import { PageHero } from "@/components/PageHero";
 
 export const Route = createFileRoute("/investors")({
   head: () => ({
@@ -29,18 +31,13 @@ const pillars = [
 function Investors() {
   return (
     <>
-      <section className="pt-40 pb-16 container-prose">
-        <span className="divider-gold mb-4 block" />
-        <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">Investor Relations</p>
-        <h1 className="font-serif text-5xl md:text-7xl max-w-3xl leading-[1.05]">
-          Building India's next institutional <span className="italic text-gold">agri-export</span> house.
-        </h1>
-        <p className="text-lg text-foreground/70 mt-6 max-w-2xl">
-          We are creating a global trade ecosystem — not a transactional exporter. The
-          long-term opportunity is at the intersection of Indian sourcing depth and
-          worldwide demand for trusted, compliant supply.
-        </p>
-      </section>
+      <PageHero
+        image={heroImg}
+        eyebrow="Investor Relations"
+        title={<>Building India's next institutional <span className="italic text-gold">agri-export</span> house.</>}
+        description="A global trade ecosystem at the intersection of Indian sourcing depth and worldwide demand for trusted, compliant supply."
+        overlay="dark"
+      />
 
       <section className="container-prose py-20">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
