@@ -5,6 +5,8 @@ import sesameImg from "@/assets/product-sesame.jpg";
 import riceImg from "@/assets/product-rice.jpg";
 import corianderImg from "@/assets/product-coriander.jpg";
 import chilliImg from "@/assets/product-chilli.jpg";
+import heroImg from "@/assets/hero-contact.jpg";
+import { PageHero } from "@/components/PageHero";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
