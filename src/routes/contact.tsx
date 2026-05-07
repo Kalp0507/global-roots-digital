@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import heroImg from "@/assets/hero-contact.jpg";
+import { PageHero } from "@/components/PageHero";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -17,13 +19,13 @@ function Contact() {
   const [sent, setSent] = useState(false);
   return (
     <>
-      <section className="pt-40 pb-12 container-prose">
-        <span className="divider-gold mb-4 block" />
-        <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">Inquiry Portal</p>
-        <h1 className="font-serif text-5xl md:text-7xl max-w-3xl leading-[1.05]">
-          Start your global sourcing journey.
-        </h1>
-      </section>
+      <PageHero
+        image={heroImg}
+        eyebrow="Inquiry Portal"
+        title={<>Start your global <span className="italic text-gold">sourcing journey.</span></>}
+        description="Quotations, samples, packaging, shipment planning — tell us what you need."
+        overlay="dark"
+      />
 
       <section className="container-prose pb-24 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5 space-y-8">
