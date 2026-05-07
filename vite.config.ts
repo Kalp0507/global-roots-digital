@@ -1,15 +1,21 @@
-// @lovable.dev/vite-tanstack-config already includes the following — do NOT add them manually
-// or the app will break with duplicate plugins:
-//   - tanstackStart, viteReact, tailwindcss, tsConfigPaths, cloudflare (build-only),
-//     componentTagger (dev-only), VITE_* env injection, @ path alias, React/TanStack dedupe,
-//     error logger plugins, and sandbox detection (port/host/strictPort).
-// You can pass additional config via defineConfig({ vite: { ... } }) if needed.
+// Static-site build: SPA shell + prerendered HTML for every route.
+// We disable the Cloudflare Worker plugin so the build emits plain static
+// files under dist/client that can be served from any static host
+// (GitHub Pages, Netlify, S3, nginx, etc.).
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-// Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-// @cloudflare/vite-plugin builds from this — wrangler.jsonc main alone is insufficient.
 export default defineConfig({
+  cloudflare: false,
   tanstackStart: {
+    spa: { enabled: true },
+    pages: [
+      { path: "/", prerender: { enabled: true } },
+      { path: "/about", prerender: { enabled: true } },
+      { path: "/products", prerender: { enabled: true } },
+      { path: "/supply-chain", prerender: { enabled: true } },
+      { path: "/investors", prerender: { enabled: true } },
+      { path: "/contact", prerender: { enabled: true } },
+    ],
     server: { entry: "server" },
   },
 });
