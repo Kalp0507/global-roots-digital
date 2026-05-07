@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import shippingImg from "@/assets/shipping.jpg";
+import { PageHero } from "@/components/PageHero";
 
 export const Route = createFileRoute("/supply-chain")({
   head: () => ({
@@ -25,27 +26,27 @@ const journey = [
 function SupplyChain() {
   return (
     <>
-      <section className="relative pt-40 pb-24 overflow-hidden">
-        <img src={shippingImg} alt="" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-charcoal/75" />
-        <div className="container-prose relative text-ivory">
-          <span className="divider-gold mb-4 block" />
-          <p className="text-xs uppercase tracking-[0.3em] text-gold mb-3">Soil to Shelf</p>
-          <h1 className="font-serif text-5xl md:text-7xl max-w-3xl leading-[1.05]">
-            One unbroken chain of trust.
-          </h1>
-        </div>
-      </section>
+      <PageHero
+        image={shippingImg}
+        eyebrow="Soil to Shelf"
+        title={<>One unbroken <span className="italic text-gold">chain of trust.</span></>}
+        description="Six controlled stages — from grower collective to buyer's door."
+        overlay="dark"
+      />
 
       <section className="container-prose py-24">
         <div className="space-y-px bg-border border border-border">
-          {journey.map((s) => (
-            <div key={s.n} className="bg-background grid md:grid-cols-12 gap-6 p-8 lg:p-10 hover:bg-secondary/30 transition">
+          {journey.map((s, i) => (
+            <div
+              key={s.n}
+              className="bg-background grid md:grid-cols-12 gap-6 p-8 lg:p-10 hover:bg-secondary/40 hover:pl-12 transition-all duration-500 group animate-fade-up"
+              style={{ animationDelay: `${i * 80}ms` }}
+            >
               <div className="md:col-span-2">
-                <span className="font-serif text-4xl text-gold">{s.n}</span>
+                <span className="font-serif text-4xl text-gold group-hover:scale-110 inline-block transition-transform duration-500">{s.n}</span>
               </div>
               <div className="md:col-span-3">
-                <h3 className="font-serif text-2xl">{s.t}</h3>
+                <h3 className="font-serif text-2xl group-hover:text-primary transition-colors">{s.t}</h3>
               </div>
               <p className="md:col-span-7 text-foreground/75 leading-relaxed">{s.d}</p>
             </div>

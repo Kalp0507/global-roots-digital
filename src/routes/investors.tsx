@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import heroImg from "@/assets/hero-investors.jpg";
+import { PageHero } from "@/components/PageHero";
 
 export const Route = createFileRoute("/investors")({
   head: () => ({
@@ -29,23 +31,22 @@ const pillars = [
 function Investors() {
   return (
     <>
-      <section className="pt-40 pb-16 container-prose">
-        <span className="divider-gold mb-4 block" />
-        <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">Investor Relations</p>
-        <h1 className="font-serif text-5xl md:text-7xl max-w-3xl leading-[1.05]">
-          Building India's next institutional <span className="italic text-gold">agri-export</span> house.
-        </h1>
-        <p className="text-lg text-foreground/70 mt-6 max-w-2xl">
-          We are creating a global trade ecosystem — not a transactional exporter. The
-          long-term opportunity is at the intersection of Indian sourcing depth and
-          worldwide demand for trusted, compliant supply.
-        </p>
-      </section>
+      <PageHero
+        image={heroImg}
+        eyebrow="Investor Relations"
+        title={<>Building India's next institutional <span className="italic text-gold">agri-export</span> house.</>}
+        description="A global trade ecosystem at the intersection of Indian sourcing depth and worldwide demand for trusted, compliant supply."
+        overlay="dark"
+      />
 
       <section className="container-prose py-20">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((s) => (
-            <div key={s.l} className="border-t border-gold pt-6">
+          {stats.map((s, i) => (
+            <div
+              key={s.l}
+              className="border-t border-gold pt-6 animate-fade-up hover:border-primary transition-colors"
+              style={{ animationDelay: `${i * 100}ms` }}
+            >
               <div className="font-serif text-5xl text-primary mb-2">{s.v}</div>
               <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{s.l}</div>
             </div>
@@ -57,8 +58,12 @@ function Investors() {
         <div className="container-prose">
           <h2 className="font-serif text-4xl md:text-5xl mb-12 max-w-2xl">Why FarmAxis Global is structurally different.</h2>
           <div className="grid md:grid-cols-2 gap-8">
-            {pillars.map((p) => (
-              <div key={p.t} className="border border-ivory/15 p-8">
+            {pillars.map((p, i) => (
+              <div
+                key={p.t}
+                className="border border-ivory/15 p-8 hover:border-gold hover:bg-ivory/5 hover:-translate-y-1 transition-all duration-500 animate-fade-up"
+                style={{ animationDelay: `${i * 100}ms` }}
+              >
                 <h3 className="font-serif text-2xl text-gold mb-3">{p.t}</h3>
                 <p className="opacity-80 leading-relaxed">{p.d}</p>
               </div>
@@ -72,7 +77,7 @@ function Investors() {
         <p className="text-foreground/70 mb-8">
           For investor decks, financial summaries and partnership conversations, get in touch.
         </p>
-        <Link to="/contact" className="inline-block px-8 py-4 bg-primary text-primary-foreground rounded-sm font-medium hover:opacity-90">
+        <Link to="/contact" className="inline-block px-8 py-4 bg-primary text-primary-foreground rounded-sm font-medium hover:bg-primary/90 hover:shadow-elegant transition-all">
           Request investor pack
         </Link>
       </section>

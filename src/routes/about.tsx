@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import heroImg from "@/assets/hero-farm.jpg";
+import heroImg from "@/assets/hero-about.jpg";
+import { PageHero } from "@/components/PageHero";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -16,17 +17,13 @@ export const Route = createFileRoute("/about")({
 function About() {
   return (
     <>
-      <section className="relative pt-40 pb-24 overflow-hidden">
-        <img src={heroImg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-30" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
-        <div className="container-prose relative">
-          <span className="divider-gold mb-4 block" />
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">Our Story</p>
-          <h1 className="font-serif text-5xl md:text-7xl max-w-3xl leading-[1.05]">
-            A heritage trading house, built for the digital era.
-          </h1>
-        </div>
-      </section>
+      <PageHero
+        image={heroImg}
+        eyebrow="Our Story"
+        title={<>A heritage trading house, built for the <span className="italic text-gold">digital era.</span></>}
+        description="Rooted in Indian soil. Engineered for global trade."
+        overlay="dark"
+      />
 
       <section className="container-prose py-20 grid md:grid-cols-2 gap-16">
         <div>
@@ -56,8 +53,12 @@ function About() {
               { t: "Digital Intelligence", d: "Data-driven decisions and complete transparency." },
               { t: "Authentic Sourcing", d: "Direct partnerships with grower collectives." },
               { t: "Long-Term Vision", d: "Building an institution, not chasing transactions." },
-            ].map((v) => (
-              <div key={v.t} className="bg-background p-8 border border-border">
+            ].map((v, i) => (
+              <div
+                key={v.t}
+                className="bg-background p-8 border border-border hover-lift hover:border-primary/40 animate-fade-up"
+                style={{ animationDelay: `${i * 80}ms` }}
+              >
                 <h3 className="font-serif text-xl mb-2 text-primary">{v.t}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{v.d}</p>
               </div>

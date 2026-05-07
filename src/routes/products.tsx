@@ -5,6 +5,8 @@ import sesameImg from "@/assets/product-sesame.jpg";
 import riceImg from "@/assets/product-rice.jpg";
 import corianderImg from "@/assets/product-coriander.jpg";
 import chilliImg from "@/assets/product-chilli.jpg";
+import heroImg from "@/assets/hero-contact.jpg";
+import { PageHero } from "@/components/PageHero";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
@@ -30,24 +32,21 @@ const catalogue = [
 function Products() {
   return (
     <>
-      <section className="pt-40 pb-16 container-prose">
-        <span className="divider-gold mb-4 block" />
-        <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">Catalogue</p>
-        <h1 className="font-serif text-5xl md:text-7xl max-w-3xl leading-[1.05]">
-          A curated harvest, <span className="italic text-primary">export-ready.</span>
-        </h1>
-        <p className="text-lg text-foreground/70 mt-6 max-w-2xl">
-          Every product is sourced from origin clusters, processed at certified facilities
-          and shipped with documentation that meets international buyer protocols.
-        </p>
-      </section>
+      <PageHero
+        image={heroImg}
+        eyebrow="Catalogue"
+        title={<>A curated harvest, <span className="italic text-gold">export-ready.</span></>}
+        description="Every product is sourced from origin clusters, processed at certified facilities and shipped with documentation that meets international buyer protocols."
+        overlay="dark"
+      />
 
-      <section className="container-prose pb-24">
+      <section className="container-prose py-24">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {catalogue.map((p, i) => (
             <article
               key={p.name}
-              className="group bg-card border border-border rounded-sm overflow-hidden hover:shadow-elegant hover:border-primary/40 hover:-translate-y-1 transition-all duration-500"
+              className="group bg-card border border-border rounded-sm overflow-hidden hover:shadow-elegant hover:border-primary/40 hover:-translate-y-1 transition-all duration-500 animate-fade-up"
+              style={{ animationDelay: `${i * 80}ms` }}
             >
               <div className="aspect-[4/5] overflow-hidden bg-secondary">
                 <img
