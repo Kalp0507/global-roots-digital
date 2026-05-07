@@ -1,10 +1,16 @@
-// Static-site build: prerender every route to HTML, no Worker runtime.
-// Uses crawlLinks so the prerenderer follows <Link>s starting from "/".
+// Static-site build for GitHub Pages (or any static host).
+// Set BASE_PATH env to "/<repo>" when deploying to https://<user>.github.io/<repo>/
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+
+const base = process.env.BASE_PATH?.replace(/\/$/, "") || "";
 
 export default defineConfig({
   cloudflare: false,
+  vite: {
+    base: base ? `${base}/` : "/",
+  },
   tanstackStart: {
+    router: { basepath: base || "/" },
     prerender: {
       enabled: true,
       crawlLinks: true,
