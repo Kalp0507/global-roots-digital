@@ -45,7 +45,8 @@ function Products() {
           {catalogue.map((p, i) => (
             <article
               key={p.name}
-              className="group bg-card border border-border rounded-sm overflow-hidden hover:shadow-elegant hover:border-primary/40 hover:-translate-y-1 transition-all duration-500"
+              className="group bg-card border border-border rounded-sm overflow-hidden hover:shadow-elegant hover:border-primary/40 hover:-translate-y-1 transition-all duration-500 animate-fade-up"
+              style={{ animationDelay: `${i * 80}ms` }}
             >
               <div className="aspect-[4/5] overflow-hidden bg-secondary">
                 <img
