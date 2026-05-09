@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import heroImg from "@/assets/hero-contact.jpg";
 import { PageHero } from "@/components/PageHero";
-import { supabase } from "@/integrations/supabase/client";
+import { submitContact } from "@/lib/contact.functions";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/contact")({
@@ -55,6 +56,7 @@ function Contact() {
   const [submitting, setSubmitting] = useState(false);
   const [inquiry, setInquiry] = useState("quote");
   const [tons, setTons] = useState("");
+  const submit = useServerFn(submitContact);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -63,7 +65,7 @@ function Contact() {
 
     const fd = new FormData(e.currentTarget);
     const payload = {
-      inquiry_type: inquiry,
+      inquiry_type: inquiry as "quote" | "sample" | "packaging" | "logistics" | "partnership",
       name: String(fd.get("name") || "").trim(),
       company: String(fd.get("company") || "").trim(),
       email: String(fd.get("email") || "").trim(),
@@ -73,15 +75,16 @@ function Contact() {
       message: String(fd.get("message") || "").trim(),
     };
 
-    const { error } = await supabase.from("contact_submissions").insert(payload);
-    setSubmitting(false);
-
-    if (error) {
+    try {
+      await submit({ data: payload });
+      setSent(true);
+      toast.success("Inquiry received — our trade desk will be in touch shortly.");
+    } catch (err) {
+      console.error(err);
       toast.error("Couldn't send your inquiry. Please try again or email trade@farmaxisglobal.com.");
-      return;
+    } finally {
+      setSubmitting(false);
     }
-    setSent(true);
-    toast.success("Inquiry received — our trade desk will be in touch shortly.");
   }
 
   return (
