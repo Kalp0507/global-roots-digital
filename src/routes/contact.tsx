@@ -254,10 +254,10 @@ function Contact() {
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
               <button
                 type="submit"
-                disabled={sent}
+                disabled={sent || submitting}
                 className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-sm font-medium hover:bg-primary/90 hover:shadow-elegant transition-all disabled:opacity-70 disabled:cursor-default"
               >
-                <span>{sent ? "Inquiry received — we'll be in touch" : "Send inquiry"}</span>
+                <span>{sent ? "Inquiry received — we'll be in touch" : submitting ? "Sending…" : "Send inquiry"}</span>
                 {!sent && (
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-4 h-4 group-hover:translate-x-1 transition-transform">
                     <path d="M5 12h14M13 6l6 6-6 6" />
