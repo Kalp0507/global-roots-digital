@@ -40,7 +40,7 @@ const channels = [
   },
   {
     title: "Headquarters",
-    lines: ["Mumbai, India"],
+    lines: ["Ahmedabad, India"],
     icon: (
       <>
         <path d="M12 22s8-7.5 8-13a8 8 0 10-16 0c0 5.5 8 13 8 13z" />

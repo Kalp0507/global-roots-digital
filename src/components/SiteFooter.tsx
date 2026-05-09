@@ -35,7 +35,7 @@ export function SiteFooter() {
           <ul className="space-y-2 text-sm opacity-80">
             <li>Jeel Patel</li>
             <li>+91 7383322120</li>
-            <li>Mumbai, India</li>
+            <li>Ahmedabad, India</li>
           </ul>
         </div>
       </div>
