@@ -52,8 +52,37 @@ const channels = [
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [inquiry, setInquiry] = useState("quote");
   const [tons, setTons] = useState("");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (submitting || sent) return;
+    setSubmitting(true);
+
+    const fd = new FormData(e.currentTarget);
+    const payload = {
+      inquiry_type: inquiry,
+      name: String(fd.get("name") || "").trim(),
+      company: String(fd.get("company") || "").trim(),
+      email: String(fd.get("email") || "").trim(),
+      phone: String(fd.get("phone") || "").trim() || null,
+      country: String(fd.get("country") || "").trim() || null,
+      volume_tons: tons ? Number(tons) : null,
+      message: String(fd.get("message") || "").trim(),
+    };
+
+    const { error } = await supabase.from("contact_submissions").insert(payload);
+    setSubmitting(false);
+
+    if (error) {
+      toast.error("Couldn't send your inquiry. Please try again or email trade@farmaxisglobal.com.");
+      return;
+    }
+    setSent(true);
+    toast.success("Inquiry received — our trade desk will be in touch shortly.");
+  }
 
   return (
     <>
