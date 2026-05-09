@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import heroImg from "@/assets/hero-contact.jpg";
 import { PageHero } from "@/components/PageHero";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -50,8 +52,37 @@ const channels = [
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [inquiry, setInquiry] = useState("quote");
   const [tons, setTons] = useState("");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (submitting || sent) return;
+    setSubmitting(true);
+
+    const fd = new FormData(e.currentTarget);
+    const payload = {
+      inquiry_type: inquiry,
+      name: String(fd.get("name") || "").trim(),
+      company: String(fd.get("company") || "").trim(),
+      email: String(fd.get("email") || "").trim(),
+      phone: String(fd.get("phone") || "").trim() || null,
+      country: String(fd.get("country") || "").trim() || null,
+      volume_tons: tons ? Number(tons) : null,
+      message: String(fd.get("message") || "").trim(),
+    };
+
+    const { error } = await supabase.from("contact_submissions").insert(payload);
+    setSubmitting(false);
+
+    if (error) {
+      toast.error("Couldn't send your inquiry. Please try again or email trade@farmaxisglobal.com.");
+      return;
+    }
+    setSent(true);
+    toast.success("Inquiry received — our trade desk will be in touch shortly.");
+  }
 
   return (
     <>
@@ -113,10 +144,7 @@ function Contact() {
 
         <form
           className="lg:col-span-8 bg-card border border-border rounded-sm shadow-soft overflow-hidden"
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSent(true);
-          }}
+          onSubmit={handleSubmit}
         >
           {/* Form header */}
           <div className="bg-primary text-primary-foreground px-8 lg:px-10 py-6 flex items-center justify-between">
@@ -226,10 +254,10 @@ function Contact() {
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
               <button
                 type="submit"
-                disabled={sent}
+                disabled={sent || submitting}
                 className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-sm font-medium hover:bg-primary/90 hover:shadow-elegant transition-all disabled:opacity-70 disabled:cursor-default"
               >
-                <span>{sent ? "Inquiry received — we'll be in touch" : "Send inquiry"}</span>
+                <span>{sent ? "Inquiry received — we'll be in touch" : submitting ? "Sending…" : "Send inquiry"}</span>
                 {!sent && (
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-4 h-4 group-hover:translate-x-1 transition-transform">
                     <path d="M5 12h14M13 6l6 6-6 6" />

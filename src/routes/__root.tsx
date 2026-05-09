@@ -110,6 +110,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Toaster } from "@/components/ui/sonner";
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
@@ -121,6 +122,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <SiteFooter />
+      <Toaster />
     </QueryClientProvider>
   );
 }
