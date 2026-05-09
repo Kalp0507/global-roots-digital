@@ -33,8 +33,8 @@ export function SiteFooter() {
         <div>
           <h4 className="text-sm uppercase tracking-[0.2em] text-gold mb-4">Contact</h4>
           <ul className="space-y-2 text-sm opacity-80">
-            <li>trade@farmaxisglobal.com</li>
-            <li>+91 00000 00000</li>
+            <li>Jeel Patel</li>
+            <li>+91 7383322120</li>
             <li>Mumbai, India</li>
           </ul>
         </div>
