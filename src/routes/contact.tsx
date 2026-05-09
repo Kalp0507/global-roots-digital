@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import heroImg from "@/assets/hero-contact.jpg";
 import { PageHero } from "@/components/PageHero";
-import { supabase } from "@/integrations/supabase/client";
+import { submitContact } from "@/lib/contact.functions";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/contact")({
