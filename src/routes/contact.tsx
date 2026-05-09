@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
 import heroImg from "@/assets/hero-contact.jpg";
 import { PageHero } from "@/components/PageHero";
-import { submitContact } from "@/lib/contact.functions";
+import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/contact")({
@@ -29,7 +28,7 @@ const inquiryTypes = [
 const channels = [
   {
     title: "Trade Desk",
-    lines: ["trade@farmaxisglobal.com", "+91 00000 00000"],
+    lines: ["Jeel Patel", "+91 7383322120"],
     icon: (
       <path d="M3 7l9 6 9-6M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
     ),
@@ -56,7 +55,6 @@ function Contact() {
   const [submitting, setSubmitting] = useState(false);
   const [inquiry, setInquiry] = useState("quote");
   const [tons, setTons] = useState("");
-  const submit = useServerFn(submitContact);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -76,12 +74,17 @@ function Contact() {
     };
 
     try {
-      await submit({ data: payload });
+      const { error } = await supabase.from("contact_submissions").insert(payload);
+
+      if (error) {
+        throw error;
+      }
+
       setSent(true);
       toast.success("Inquiry received — our trade desk will be in touch shortly.");
     } catch (err) {
       console.error(err);
-      toast.error("Couldn't send your inquiry. Please try again or email trade@farmaxisglobal.com.");
+      toast.error("Couldn't send your inquiry. Please try again or call +91 7383322120.");
     } finally {
       setSubmitting(false);
     }
@@ -268,7 +271,7 @@ function Contact() {
                 )}
               </button>
               <p className="text-xs text-muted-foreground">
-                Or write directly to <span className="text-foreground">trade@farmaxisglobal.com</span>
+                Or call <span className="text-foreground">Jeel Patel at +91 7383322120</span>
               </p>
             </div>
           </div>
