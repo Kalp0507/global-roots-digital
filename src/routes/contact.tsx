@@ -144,10 +144,7 @@ function Contact() {
 
         <form
           className="lg:col-span-8 bg-card border border-border rounded-sm shadow-soft overflow-hidden"
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSent(true);
-          }}
+          onSubmit={handleSubmit}
         >
           {/* Form header */}
           <div className="bg-primary text-primary-foreground px-8 lg:px-10 py-6 flex items-center justify-between">
