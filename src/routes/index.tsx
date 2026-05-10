@@ -131,7 +131,8 @@ function Home() {
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="divider-gold mb-4 inline-block" />
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">The Catalogue</p>
-            <h2 className="font-serif text-4xl md:text-5xl">A curated harvest, export-ready.</h2>
+            <h2 className="font-serif text-4xl md:text-5xl">One pick from each shelf.</h2>
+            <p className="text-muted-foreground mt-4">A taste of what we ship — spices, grains, fruits and vegetables.</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
