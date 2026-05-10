@@ -62,12 +62,14 @@ function Home() {
                 Farm-Picked. Founder-Packed. Globally Shipped.
               </span>
             </div>
-            <h1 className="font-serif text-5xl md:text-7xl leading-[1.05] mb-6 animate-fade-up">
-              From an Indian field
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6 animate-fade-up">
+              From an <span className="text-gold">Indian field</span>
               <br />
-              to your <span className="italic text-gold">port of choice</span>
+              to your <span className="italic text-primary-glow">port of choice</span>
               <br />
-              — without losing the soul of it.
+              <span className="text-ivory/90">— without losing the </span>
+              <span className="italic text-gold">soul</span>
+              <span className="text-ivory/90"> of it.</span>
             </h1>
             <p className="text-lg md:text-xl opacity-85 max-w-xl mb-10 leading-relaxed animate-fade-up-delay">
               No middlemen mark-ups. No mystery sources. Just spices, grains, fruits and
