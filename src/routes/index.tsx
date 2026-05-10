@@ -2,42 +2,41 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-farm.jpg";
 import shippingImg from "@/assets/shipping.jpg";
 import turmericImg from "@/assets/product-turmeric.jpg";
-import cuminImg from "@/assets/product-cumin.jpg";
-import sesameImg from "@/assets/product-sesame.jpg";
 import riceImg from "@/assets/product-rice.jpg";
+import bananaImg from "@/assets/product-banana.jpg";
+import onionImg from "@/assets/product-onion.jpg";
 
 export const Route = createFileRoute("/")({
   component: Home,
 });
 
 const products = [
-  { name: "Turmeric", img: turmericImg, origin: "Erode, Tamil Nadu", note: "High-curcumin, vibrant pigment" },
-  { name: "Cumin", img: cuminImg, origin: "Unjha, Gujarat", note: "Steam sterilised, export grade" },
-  { name: "Sesame Seeds", img: sesameImg, origin: "Saurashtra", note: "Hulled & natural, 99.95% purity" },
-  { name: "Basmati Rice", img: riceImg, origin: "Punjab & Haryana", note: "Aged long-grain, premium tier" },
+  { name: "Turmeric", img: turmericImg, origin: "Erode, Tamil Nadu", note: "Spices — high-curcumin, vibrant pigment" },
+  { name: "Basmati Rice", img: riceImg, origin: "Punjab & Haryana", note: "Grains — aged long-grain, premium tier" },
+  { name: "Banana", img: bananaImg, origin: "Maharashtra & Tamil Nadu", note: "Fruits — Cavendish, export-grade cartons" },
+  { name: "Onion", img: onionImg, origin: "Nashik, Maharashtra", note: "Vegetables — red, 50–80 mm, mesh-bagged" },
 ];
 
 const stages = [
-  { n: "01", t: "Farm", d: "Direct partnerships with grower collectives across India." },
-  { n: "02", t: "Processing", d: "Cleaning, grading and steam sterilisation at certified facilities." },
-  { n: "03", t: "Quality Lab", d: "Moisture, microbial and pesticide testing per buyer protocols." },
-  { n: "04", t: "Packaging", d: "Custom packaging, private-label and bulk export configurations." },
-  { n: "05", t: "Port", d: "Consolidated containers from Mundra, Nhava Sheva and Tuticorin." },
-  { n: "06", t: "Buyer", d: "Door-delivered with full traceability and shipment intelligence." },
+  { n: "01", t: "Farm", d: "Building direct relationships with growers we personally visit and trust." },
+  { n: "02", t: "Processing", d: "Partnered with certified facilities for cleaning, grading and sterilisation." },
+  { n: "03", t: "Quality Lab", d: "Independent lab checks for moisture, microbial load and pesticide residues." },
+  { n: "04", t: "Packaging", d: "Flexible packaging — bulk, retail or private-label as the buyer needs." },
+  { n: "05", t: "Port", d: "Shipping through Mundra and Nhava Sheva with experienced freight partners." },
+  { n: "06", t: "Buyer", d: "Hands-on coordination and full documentation, every single shipment." },
 ];
 
 const stats = [
-  { v: "12,400+", l: "Tons capacity" },
-  { v: "18", l: "Countries served" },
-  { v: "240+", l: "Supplier partners" },
-  { v: "94%", l: "Repeat buyers" },
+  { v: "Day 1", l: "Founders on the ground" },
+  { v: "4", l: "Product categories" },
+  { v: "13", l: "SKUs ready to ship" },
+  { v: "100%", l: "Personally checked" },
 ];
 
-const certs = ["APEDA", "FSSAI", "ISO 22000", "HACCP", "Spices Board"];
+const certs = ["APEDA Registered", "FSSAI", "Lab-Tested", "Spices Board"];
 
 const markets = [
-  "United Arab Emirates", "Saudi Arabia", "Singapore",
-  "United Kingdom", "Germany", "Vietnam", "United States", "Japan",
+  "United Arab Emirates", "Saudi Arabia", "Singapore", "United Kingdom",
 ];
 
 function Home() {
