@@ -203,8 +203,9 @@ function Home() {
         <div className="container-prose relative z-10 text-ivory">
           <div className="max-w-2xl mb-12">
             <span className="divider-gold mb-4 block" />
-            <p className="text-xs uppercase tracking-[0.3em] text-gold mb-3">Global Presence</p>
-            <h2 className="font-serif text-4xl md:text-5xl">Trade routes that span continents.</h2>
+            <p className="text-xs uppercase tracking-[0.3em] text-gold mb-3">First Markets</p>
+            <h2 className="font-serif text-4xl md:text-5xl">Starting close. Aiming far.</h2>
+            <p className="text-ivory/80 mt-4 max-w-xl">Initial focus markets where we're actively quoting and building buyer relationships.</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-ivory/15">
             {markets.map((m) => (
