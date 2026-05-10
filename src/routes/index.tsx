@@ -239,10 +239,10 @@ function Home() {
         <div className="container-prose text-center max-w-3xl">
           <span className="divider-gold mb-6 inline-block" />
           <h2 className="font-serif text-4xl md:text-5xl mb-6 leading-tight">
-            Start your global sourcing journey with a partner who understands both farm and freight.
+            Be one of our first buyers — and help shape how we grow.
           </h2>
           <p className="opacity-80 mb-10 text-lg">
-            Tell us what you need — quotation, samples, packaging, or shipment planning.
+            Send us your requirement. You'll get a real reply from a real person, usually the same day.
           </p>
           <Link
             to="/contact"
