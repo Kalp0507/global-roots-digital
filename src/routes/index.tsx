@@ -59,19 +59,20 @@ function Home() {
             <div className="flex items-center gap-3 mb-6 animate-fade-up">
               <span className="divider-gold" />
               <span className="text-xs uppercase tracking-[0.3em] text-gold animate-shimmer">
-                New Venture. Honest Sourcing. Big Ambition.
+                Farm-Picked. Founder-Packed. Globally Shipped.
               </span>
             </div>
             <h1 className="font-serif text-5xl md:text-7xl leading-[1.05] mb-6 animate-fade-up">
-              Indian Farms.
+              From an Indian field
               <br />
-              World Tables.
+              to your <span className="italic text-gold">port of choice</span>
               <br />
-              <span className="italic text-gold">One Honest Shipment at a Time.</span>
+              — without losing the soul of it.
             </h1>
             <p className="text-lg md:text-xl opacity-85 max-w-xl mb-10 leading-relaxed animate-fade-up-delay">
-              We're a young, founder-led export house built on a simple idea: source it
-              ourselves, check it ourselves, and stand behind every box that leaves the port.
+              No middlemen mark-ups. No mystery sources. Just spices, grains, fruits and
+              vegetables we've personally walked the farms for — and a young team that
+              answers the phone.
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-up-delay-2">
               <Link
