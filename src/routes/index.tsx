@@ -221,8 +221,8 @@ function Home() {
       <section className="py-28 container-prose">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="divider-gold mb-4 inline-block" />
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">By the Numbers</p>
-          <h2 className="font-serif text-4xl md:text-5xl">Built for institutional confidence.</h2>
+          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">Where We Are</p>
+          <h2 className="font-serif text-4xl md:text-5xl">Small numbers. Honest ones.</h2>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((s) => (
