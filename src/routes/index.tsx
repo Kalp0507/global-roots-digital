@@ -63,13 +63,15 @@ function Home() {
               </span>
             </div>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6 animate-fade-up">
-              From an <span className="text-gold">Indian field</span>
+              <span className="text-ivory">From an </span>
+              <span className="text-gold">Indian field</span>
               <br />
-              to your <span className="italic text-primary-glow">port of choice</span>
+              <span className="text-ivory">to your </span>
+              <span className="italic" style={{ color: "oklch(0.78 0.15 145)" }}>port of choice</span>
               <br />
-              <span className="text-ivory/90">— without losing the </span>
+              <span className="text-ivory/85">— without losing the </span>
               <span className="italic text-gold">soul</span>
-              <span className="text-ivory/90"> of it.</span>
+              <span className="text-ivory/85"> of it.</span>
             </h1>
             <p className="text-lg md:text-xl opacity-85 max-w-xl mb-10 leading-relaxed animate-fade-up-delay">
               No middlemen mark-ups. No mystery sources. Just spices, grains, fruits and
