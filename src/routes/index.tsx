@@ -107,18 +107,19 @@ function Home() {
             <span className="divider-gold mb-4 block" />
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">Our Promise</p>
             <h2 className="font-serif text-4xl md:text-5xl leading-tight">
-              Rooted in Indian agriculture. Trusted across global markets.
+              A small team. A high standard. No shortcuts.
             </h2>
           </div>
           <div className="md:col-span-7 md:pt-4 space-y-5 text-foreground/80 text-lg leading-relaxed">
             <p>
-              FarmAxis Global is a heritage trading institution built for the digital era.
-              We exist at the intersection of authentic Indian sourcing and the world's
-              growing demand for transparent, reliable supply.
+              FarmAxis Global is just getting started — and that's exactly why it matters
+              who you work with. Every grower we partner with, every lot we accept, every
+              container we load is decided by the founders, not a faceless desk.
             </p>
             <p>
-              Every shipment is a covenant — verified at the farm, certified at the lab,
-              and delivered with complete traceability. That is the FarmAxis standard.
+              We may be early, but the standard isn't. Lab-tested, photographed at loading,
+              and shipped with full documentation. If something isn't right, you hear it
+              from us first.
             </p>
           </div>
         </div>
